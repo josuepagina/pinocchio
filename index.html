@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Practice: Pinocchio Chapter 3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+        }
+
+        .story-image {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        .card h2 {
+            color: #3498db;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .reading-section {
+            grid-column: 1 / -1;
+        }
+
+        .text-content {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        button:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        .recording-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .record-btn {
+            background: #e74c3c;
+        }
+
+        .record-btn:hover {
+            background: #c0392b;
+        }
+
+        .record-btn.recording {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .audio-visualizer {
+            height: 100px;
+            width: 100%;
+            background: #f0f0f0;
+            border-radius: 5px;
+            margin: 15px 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 2px;
+            padding: 10px;
+        }
+
+        .bar {
+            width: 8px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+
+        .vocabulary-section {
+            margin-top: 30px;
+        }
+
+        .vocab-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .vocab-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .vocab-word {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .vocab-meaning {
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>English Practice: Pinocchio Chapter 3</h1>
+            <p class="subtitle">Read, Write, Listen and Speak to improve your English skills</p>
+            <img src="https://www.storynory.com/wp-content/uploads/2013/08/03-pinocchio.jpg" alt="Pinocchio" class="story-image">
+        </header>
+
+        <!-- Nuevo reproductor de audio arriba -->
+        <section class="card" style="margin-bottom: 20px;">
+            <h2>Listen to Chapter 3</h2>
+            <audio id="topAudioPlayer" controls style="width: 100%;">
+                <source src="03_Chapter_3_Pinocchio.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
+
+        <div class="content-grid">
+            <section class="card reading-section">
+                <h2>Reading</h2>
+                <div class="text-content">
+                    <p>Geppetto makes the talking piece of wood into a puppet and calls him Pinocchio. As soon as he can run, Pinocchio proves to be very naughty.</p>
+                    <p><strong>Read by Natasha Illustrated by Chiara Civati</strong></p>
+                    <h3>CHAPTER 3</h3>
+                    <p>Little as Geppetto’s house was, it was neat and comfortable. It was a small room on the ground floor, with a tiny window under the stairway. The furniture could not have been much simpler: a very old chair, a rickety old bed, and a tumble-down table. A fireplace full of burning logs was painted on the wall opposite the door. Over the fire, there was painted a pot full of something which kept boiling happily away and sending up clouds of what looked like real steam.</p>
+
+                    <p>As soon as he reached home, Geppetto took his tools and began to cut and shape the wood into a Marionette.</p>
+
+                    <p>“What shall I call him?” he said to himself. “I think I’ll call him PINOCCHIO. This name will make his fortune. I knew a whole family of Pinocchi once–Pinocchio the father, Pinocchia the mother, and Pinocchi the children–and they were all lucky. The richest of them begged for his living.”</p>
+
+                    <p>After choosing the name for his Marionette, Geppetto set seriously to work to make the hair, the forehead, the eyes. Fancy his surprise when he noticed that these eyes moved and then stared fixedly at him. Geppetto, seeing this, felt insulted and said in a grieved tone:</p>
+
+                    <p>“Ugly wooden eyes, why do you stare so?”</p>
+
+                    <p>There was no answer.</p>
+
+                    <p>After the eyes, Geppetto made the nose, which began to stretch as soon as finished. It stretched and stretched and stretched till it became so long, it seemed endless.</p>
+
+                    <p>Poor Geppetto kept cutting it and cutting it, but the more he cut, the longer grew that impertinent nose. In despair he let it alone.</p>
+
+                    <p>Next he made the mouth.</p>
+
+                    <p>No sooner was it finished than it began to laugh and poke fun at him.</p>
+
+                    <p>“Stop laughing!” said Geppetto angrily; but he might as well have spoken to the wall.</p>
+
+                    <p>“Stop laughing, I say!” he roared in a voice of thunder.</p>
+
+                    <p>The mouth stopped laughing, but it stuck out a long tongue.</p>
+
+                    <p>Not wishing to start an argument, Geppetto made believe he saw nothing and went on with his work. After the mouth, he made the chin, then the neck, the shoulders, the stomach, the arms, and the hands.</p>
+
+                    <p>As he was about to put the last touches on the finger tips, Geppetto felt his wig being pulled off. He glanced up and what did he see? His yellow wig was in the Marionette’s hand. “Pinocchio, give me my wig!”</p>
+
+                    <p>But instead of giving it back, Pinocchio put it on his own head, which was half swallowed up in it.</p>
+
+                    <p>At that unexpected trick, Geppetto became very sad and downcast, more so than he had ever been before.</p>
+
+                    <p>“Pinocchio, you wicked boy!” he cried out. “You are not yet finished, and you start out by being impudent to your poor old father. Very bad, my son, very bad!”</p>
+
+                    <p>And he wiped away a tear.</p>
+
+                    <p>The legs and feet still had to be made. As soon as they were done, Geppetto felt a sharp kick on the tip of his nose.</p>
+
+                    <p>“I deserve it!” he said to himself. “I should have thought of this before I made him. Now it’s too late!”</p>
+
+                    <p>He took hold of the Marionette under the arms and put him on the floor to teach him to walk.</p>
+
+                    <p>Pinocchio’s legs were so stiff that he could not move them, and Geppetto held his hand and showed him how to put out one foot after the other.</p>
+
+                    <p>When his legs were limbered up, Pinocchio started walking by himself and ran all around the room. He came to the open door, and with one leap he was out into the street. Away he flew!</p>
+
+                    <p>Poor Geppetto ran after him but was unable to catch him, for Pinocchio ran in leaps and bounds, his two wooden feet, as they beat on the stones of the street, making as much noise as twenty peasants in wooden shoes.</p>
+
+                    <p>“Catch him! Catch him!” Geppetto kept shouting. But the people in the street, seeing a wooden Marionette running like the wind, stood still to stare and to laugh until they cried.</p>
+
+                    <p>At last, by sheer luck, a Carabineer happened along, who, hearing all that noise, thought that it might be a runaway colt, and stood bravely in the middle of the street, with legs wide apart, firmly resolved to stop it and prevent any trouble.</p>
+
+                    <p>Pinocchio saw the Carabineer from afar and tried his best to escape between the legs of the big fellow, but without success.</p>
+
+                    <p>The Carabineer grabbed him by the nose (it was an extremely long one and seemed made on purpose for that very thing) and returned him to Mastro Geppetto.</p>
+
+                    <p>The little old man wanted to pull Pinocchio’s ears. Think how he felt when, upon searching for them, he discovered that he had forgotten to make them!</p>
+
+                    <p>All he could do was to seize Pinocchio by the back of the neck and take him home. As he was doing so, he shook him two or three times and said to him angrily:</p>
+
+                    <p>“We’re going home now. When we get home, then we’ll settle this matter!”</p>
+
+                    <p>Pinocchio, on hearing this, threw himself on the ground and refused to take another step. One person after another gathered around the two.</p>
+
+                    <p>Some said one thing, some another.</p>
+
+                    <p>“Poor Marionette,” called out a man. “I am not surprised he doesn’t want to go home. Geppetto, no doubt, will beat him unmercifully, he is so mean and cruel!”</p>
+
+                    <p>“Geppetto looks like a good man,” added another, “but with boys he’s a real tyrant. If we leave that poor Marionette in his hands he may tear him to pieces!”</p>
+
+                    <p>They said so much that, finally, the Carabineer ended matters by setting Pinocchio at liberty and dragging Geppetto to prison. The poor old fellow did not know how to defend himself, but wept and wailed like a child and said between his sobs:</p>
+
+                    <p>“Ungrateful boy! To think I tried so hard to make you a well-behaved Marionette! I deserve it, however! I should have given the matter more thought.”</p>
+
+                    <p>What happened after this is an almost unbelievable story, but you may read it, dear children, in the chapters that follow.</p>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Writing Practice</h2>
+                <p>Answer the following questions in <strong>one simple sentence</strong> each:</p>
+
+                <ol>
+                    <li>
+                        <label>What did Geppetto name the puppet?</label>
+                        <textarea rows="2" placeholder="Write your answer here..."></textarea>
+                    </li>
+                    <li>
+                        <label>What happened to the puppet's nose after Geppetto made it?</label>
+                        <textarea rows="2" placeholder="Write your answer here..."></textarea>
+                    </li>
+                    <li>
+                        <label>How did Pinocchio treat Geppetto after he was finished?</label>
+                        <textarea rows="2" placeholder="Write your answer here..."></textarea>
+                    </li>
+                    <li>
+                        <label>What did Pinocchio do as soon as he learned to walk?</label>
+                        <textarea rows="2" placeholder="Write your answer here..."></textarea>
+                    </li>
+                    <li>
+                        <label>Who caught Pinocchio after he ran away?</label>
+                        <textarea rows="2" placeholder="Write your answer here..."></textarea>
+                    </li>
+                </ol>
+
+                <button onclick="showAnswers()">Show Correct Answers</button>
+                <div id="correctAnswers" style="margin-top: 15px; font-weight: bold; color: green; display: none;">
+                    <p>1. He named him Pinocchio.</p>
+                    <p>2. It began to grow very long.</p>
+                    <p>3. He laughed at him and took his wig.</p>
+                    <p>4. He ran away into the street.</p>
+                    <p>5. A Carabineer caught him.</p>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Speaking Practice</h2>
+                <p>Listen to the pronunciation audio and then record yourself reading the same sentence:</p>
+
+                <audio controls style="width: 100%; margin-bottom: 10px;">
+                    <source src="pinocchio.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+
+                <p><strong>Sentence to practice:</strong></p>
+                <div style="background: #f0f0f0; padding: 15px; border-radius: 5px; margin: 10px 0;">
+                    “Pinocchio’s legs were so stiff that he could not move them, and Geppetto held his hand and showed him how to put out one foot after the other.”
+                </div>
+
+                <div class="recording-controls">
+                    <button id="recordBtn" class="record-btn">Start Recording</button>
+                    <button id="stopRecordBtn" disabled>Stop Recording</button>
+                    <button id="playRecordBtn" disabled>Play Recording</button>
+                </div>
+
+                <div class="audio-visualizer" id="visualizer"></div>
+                <p id="recordingStatus">Press "Start Recording" to begin</p>
+            </section>
+
+            <section class="card vocabulary-section">
+                <h2>Vocabulary</h2>
+                <p>Important words from this chapter:</p>
+                <div class="vocab-list">
+                    <div class="vocab-item">
+                        <div class="vocab-word">Rickety</div>
+                        <div class="vocab-meaning">(adj.) in poor condition and likely to break</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-word">Impertinent</div>
+                        <div class="vocab-meaning">(adj.) not showing proper respect</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-word">Carabineer</div>
+                        <div class="vocab-meaning">(n.) a military policeman</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-word">Downcast</div>
+                        <div class="vocab-meaning">(adj.) sad or discouraged</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-word">Ungrateful</div>
+                        <div class="vocab-meaning">(adj.) not thankful for kindness</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>English Practice Tool - Created for English Class</p>
+            <p>Story from Storynory: Pinocchio Chapter 3</p>
+        </footer>
+    </div>
+
+    <script>
+        function showAnswers() {
+            const answersDiv = document.getElementById('correctAnswers');
+            answersDiv.style.display = 'block';
+        }
+
+        // Speaking practice recording
+        const recordBtn = document.getElementById('recordBtn');
+        const stopRecordBtn = document.getElementById('stopRecordBtn');
+        const playRecordBtn = document.getElementById('playRecordBtn');
+        const recordingStatus = document.getElementById('recordingStatus');
+        const visualizer = document.getElementById('visualizer');
+
+        let mediaRecorder;
+        let audioChunks = [];
+        let audioBlob;
+        let audioUrl;
+        let audioElement;
+        let isRecording = false;
+        let animationId;
+
+        // Create visualizer bars
+        for (let i = 0; i < 30; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'bar';
+            bar.style.height = '10px';
+            visualizer.appendChild(bar);
+        }
+
+        const bars = document.querySelectorAll('.bar');
+
+        recordBtn.addEventListener('click', async () => {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaRecorder = new MediaRecorder(stream);
+
+                mediaRecorder.ondataavailable = (event) => {
+                    audioChunks.push(event.data);
+                };
+
+                mediaRecorder.onstop = () => {
+                    audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                    audioUrl = URL.createObjectURL(audioBlob);
+                    audioElement = new Audio(audioUrl);
+                    playRecordBtn.disabled = false;
+                    recordingStatus.textContent = 'Recording complete. Press "Play Recording" to listen.';
+                };
+
+                mediaRecorder.start();
+                isRecording = true;
+
+                recordBtn.disabled = true;
+                recordBtn.classList.add('recording');
+                stopRecordBtn.disabled = false;
+                recordingStatus.textContent = 'Recording... Speak now!';
+                animateVisualizer();
+
+            } catch (error) {
+                console.error('Error accessing microphone:', error);
+                recordingStatus.textContent = 'Error: Could not access microphone. Please check permissions.';
+            }
+        });
+
+        stopRecordBtn.addEventListener('click', () => {
+            if (mediaRecorder && isRecording) {
+                mediaRecorder.stop();
+                isRecording = false;
+                mediaRecorder.stream.getTracks().forEach(track => track.stop());
+
+                recordBtn.disabled = false;
+                recordBtn.classList.remove('recording');
+                stopRecordBtn.disabled = true;
+                cancelAnimationFrame(animationId);
+                resetVisualizer();
+            }
+        });
+
+        playRecordBtn.addEventListener('click', () => {
+            if (audioElement) {
+                audioElement.play();
+                recordingStatus.textContent = 'Playing your recording...';
+                audioElement.onended = () => {
+                    recordingStatus.textContent = 'Playback finished.';
+                };
+            }
+        });
+
+        function animateVisualizer() {
+            if (!isRecording) return;
+            bars.forEach(bar => {
+                const height = Math.random() * 80 + 10;
+                bar.style.height = `${height}px`;
+            });
+            animationId = requestAnimationFrame(animateVisualizer);
+        }
+
+        function resetVisualizer() {
+            bars.forEach(bar => {
+                bar.style.height = '10px';
+            });
+        }
+    </script>
+</body>
+</html>
